@@ -279,7 +279,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
     android.hardware.power@1.0-service \
-    power.msm8974
+    power.bacon
 
 # Ramdisk
 PRODUCT_PACKAGES += \
