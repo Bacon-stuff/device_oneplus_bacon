@@ -194,6 +194,9 @@ ifneq ($(QCPATH),)
 # Bluetooth
 FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
 
+# Enable real time lockscreen charging current values
+BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
+
 # QCNE
 ifeq ($(BOARD_USES_QCNE),true)
 TARGET_LDPRELOAD := libNimsWrap.so
