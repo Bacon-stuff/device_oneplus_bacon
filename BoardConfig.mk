@@ -138,6 +138,9 @@ TARGET_USES_HWC2 := true
 TARGET_INIT_VENDOR_LIB := libinit_bacon
 TARGET_RECOVERY_DEVICE_MODULES := libinit_bacon
 
+# jemalloc
+MALLOC_SVELTE := true
+
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
