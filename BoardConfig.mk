@@ -202,6 +202,11 @@ TARGET_LDPRELOAD := libNimsWrap.so
 endif
 endif
 
+# TWRP
+ifeq ($(WITH_TWRP),true)
+TARGET_RECOVERY_DEVICE_DIRS += device/oneplus/bacon/twrp
+endif
+
 DEVICE_MANIFEST_FILE := device/oneplus/bacon/manifest.xml
 
 -include vendor/oneplus/bacon/BoardConfigVendor.mk
