@@ -99,10 +99,6 @@ static void power_hint(struct power_module *module __unused, power_hint_t hint,
         set_power_profile(*(int32_t *)data);
 }
 
-static struct hw_module_methods_t power_module_methods = {
-    .open = NULL,
-};
-
 static void set_feature(struct power_module *module __unused,
                 feature_t feature, int state)
 {
@@ -122,6 +118,46 @@ static int get_feature(struct power_module *module __unused, feature_t feature)
         return POWER_NR_OF_SUPPORTED_PROFILES;
     return -1;
 }
+
+static int power_open(const hw_module_t* module, const char* name,
+                    hw_device_t** device)
+{
+    ALOGD("%s: enter; name=%s", __FUNCTION__, name);
+    int retval = 0; /* 0 is ok; -1 is error */
+
+    if (strcmp(name, POWER_HARDWARE_MODULE_ID) == 0) {
+        power_module_t *dev = (power_module_t *)calloc(1,
+                sizeof(power_module_t));
+
+        if (dev) {
+            /* Common hw_device_t fields */
+            dev->common.tag = HARDWARE_DEVICE_TAG;
+            dev->common.module_api_version = POWER_MODULE_API_VERSION_0_3;
+            dev->common.hal_api_version = HARDWARE_HAL_API_VERSION;
+
+            dev->init = power_init;
+            dev->powerHint = power_hint;
+            dev->setInteractive = power_set_interactive;
+            dev->setFeature = set_feature;
+            dev->getFeature = get_feature;
+            dev->get_number_of_platform_modes = NULL;
+            dev->get_platform_low_power_stats = NULL;
+            dev->get_voter_list = NULL;
+
+            *device = (hw_device_t*)dev;
+        } else
+            retval = -ENOMEM;
+    } else {
+        retval = -EINVAL;
+    }
+
+    ALOGD("%s: exit %d", __FUNCTION__, retval);
+    return retval;
+}
+
+static struct hw_module_methods_t power_module_methods = {
+    .open = power_open,
+};
 
 struct power_module HAL_MODULE_INFO_SYM = {
     .common = {
