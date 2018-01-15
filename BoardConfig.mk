@@ -162,9 +162,6 @@ TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.recovery
 # Compile libhwui in performance mode
 HWUI_COMPILE_FOR_PERF := true
 
-# RPC
-TARGET_NO_RPC := true
-
 # Sepolicy
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
