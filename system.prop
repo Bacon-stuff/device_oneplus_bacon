@@ -39,6 +39,8 @@ audio_hal.period_size=192
 persist.audio.fluence.voicecall=true
 ro.qc.sdk.audio.fluencetype=fluence
 
+persist.audio.fluence.speaker=false
+persist.audio.fluence.voicerec=false
 audio.offload.buffer.size.kb=32
 audio.offload.video=true
 audio.offload.multiple.enabled=false
