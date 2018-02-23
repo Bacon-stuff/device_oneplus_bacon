@@ -168,6 +168,11 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(PLATFORM_PATH)/sepolicy
 
+# Shims
+TARGET_LD_SHIM_LIBS := \
+    /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
+    /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so
+
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
 
