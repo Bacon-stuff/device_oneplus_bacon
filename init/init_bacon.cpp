@@ -52,7 +52,7 @@ static int read_file2(const char *fname, char *data, int max_size)
 
     fd = open(fname, O_RDONLY);
     if (fd < 0) {
-        LOG(ERROR) << "failed to open '" << fname << "'\n";
+        ERROR("failed to open '%s'\n", fname);
         return 0;
     }
 
