@@ -388,6 +388,7 @@
 
     <!-- Proximity check -->
     <bool name="config_proximityCheckOnWake">true</bool>
+    <integer name="config_proximityCheckTimeout">100</integer>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
 
      <!-- Specifies the path that is used by AdaptiveIconDrawable class to crop launcher icons. -->
