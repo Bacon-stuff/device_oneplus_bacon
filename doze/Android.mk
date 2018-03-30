@@ -9,6 +9,8 @@ LOCAL_PACKAGE_NAME := OnePlusDoze
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
 
+LOCAL_USE_AAPT2 := true
+
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 include $(BUILD_PACKAGE)
