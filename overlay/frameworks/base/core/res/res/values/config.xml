@@ -393,4 +393,10 @@
         <item>LPP_PROFILE=0</item>
         <item>A_GLONASS_POS_PROTOCOL_SELECT=0</item>
     </string-array>
+
+    <!-- Control whether the always on display mode is available. This should only be enabled on
+         devices where the display has be tuned to be power efficient in DOZE and/or DOZE_SUSPEND
+         states. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+
 </resources>
