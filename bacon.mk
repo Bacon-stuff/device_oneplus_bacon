@@ -291,9 +291,6 @@ PRODUCT_PACKAGES += \
     libinit_bacon \
     ueventd.bacon.rc
 
-PRODUCT_PACKAGES += \
-    init.qcom.bt.sh
-
 # RCS
 PRODUCT_PACKAGES += \
     rcs_service_aidl \
