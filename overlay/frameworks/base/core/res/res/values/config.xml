@@ -178,11 +178,9 @@
          in gralloc protected buffers.  For this to be true, there must exist
          a protected hardware path for surface flinger to composite and send
          protected buffers to the wifi display video encoder.
-
          If this flag is false, we advise applications not to use protected
          buffers (if possible) when presenting content to a wifi display because
          the content may be blanked.
-
          This flag controls whether the {@link Display#FLAG_SUPPORTS_PROTECTED_BUFFERS}
          flag is set for wifi displays.
     -->
@@ -254,13 +252,11 @@
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N  1 zones as follows:
-
          Zone 0:        0 <= LUX < array[0]
          Zone 1:        array[0] <= LUX < array[1]
          ...
          Zone N:        array[N - 1] <= LUX < array[N]
          Zone N + 1     array[N] <= LUX < infinity
-
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
         <item>2</item>
@@ -480,4 +476,8 @@
         <item>0x40400000</item> <!-- PWR_CLPS DIS resource opcode-->
         <item>0x1</item>        <!-- PWR_CLPS DIS resource value-->
     </integer-array>
+
+    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->
+    <bool name="config_showNavigationBar">true</bool>
 </resources>
